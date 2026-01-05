@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عداد زفاف - يوم الفرح</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #faf7f4, #d4c2d3, #faf7f4);
+            color: #412649;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: linear-gradient(to bottom, #faf7f4, #ffffff);
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 15px 35px rgba(129, 107, 129, 0.2);
+            border: 2px solid #a586a6;
+            text-align: center;
+        }
+
+        /* ===== صورة المقدمة (مناسبة لأبعاد 1414×1504) ===== */
+        .hero-image {
+            width: 100%;
+            max-height: 520px;
+            background: #faf7f4;
+            border-radius: 22px;
+            margin-bottom: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(165, 134, 166, 0.35);
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            max-height: 520px;
+            object-fit: contain;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #735e59, #412649);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: #735e59;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+        }
+
+        .counters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .counter-box {
+            flex: 1;
+            min-width: 300px;
+            background: linear-gradient(145deg, #ffffff, #faf7f4);
+            border-radius: 20px;
+            padding: 30px 20px;
+            box-shadow: 0 10px 25px rgba(165, 134, 166, 0.25);
+            border: 2px solid #d4c2d3;
+        }
+
+        .counter-title {
+            font-size: 1.7rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .target-date {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            background: rgba(165, 134, 166, 0.15);
+            padding: 12px;
+            border-radius: 12px;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .countdown-box {
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px 10px;
+            min-width: 110px;
+            box-shadow: 0 8px 20px rgba(165, 134, 166, 0.2);
+        }
+
+        .countdown-value {
+            font-size: 2.4rem;
+            font-weight: bold;
+        }
+
+        .countdown-label {
+            margin-top: 8px;
+            color: #735e59;
+        }
+
+        .message {
+            margin-top: 25px;
+            padding: 15px;
+            background: rgba(165, 134, 166, 0.15);
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        footer {
+            margin-top: 40px;
+            color: #735e59;
+            font-size: 0.9rem;
+            padding: 15px;
+            background: rgba(165, 134, 166, 0.15);
+            border-radius: 12px;
+        }
+
+        /* 📱 للجوال */
+        @media (max-width: 768px) {
+            .hero-image {
+                max-height: 380px;
+            }
+
+            .hero-image img {
+                max-height: 380px;
+            }
+
+            h1 {
+                font-size: 2.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- صورة المقدمة -->
+        <div class="hero-image">
+            <img src="wedding.png" alt="صورة الزفاف">
+        </div>
+
+        <header>
+            <h1>عداداتنا</h1>
+            <p class="description">
+                موقع خاص لمتابعة الوقت المتبقي ليوم الزفاف والوقت المنقضي منذ يوم العقد.
+                كل لحظة تقربنا من يوم <strong>السعادة الأبدية</strong>.
+            </p>
+        </header>
+
+        <div class="counters-container">
+
+            <div class="counter-box">
+                <div class="counter-title">العداد التنازلي للزفاف</div>
+                <div class="target-date">يوم الزفاف: 23 مارس</div>
+                <div class="countdown-container">
+                    <div class="countdown-box">
+                        <div id="wedding-days" class="countdown-value">00</div>
+                        <div class="countdown-label">أيام</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div id="wedding-hours" class="countdown-value">00</div>
+                        <div class="countdown-label">ساعات</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div id="wedding-minutes" class="countdown-value">00</div>
+                        <div class="countdown-label">دقائق</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div id="wedding-seconds" class="countdown-value">00</div>
+                        <div class="countdown-label">ثواني</div>
+                    </div>
+                </div>
+                <div class="message">💍 العد التنازلي مستمر حتى يوم الزفاف</div>
+            </div>
+
+            <div class="counter-box">
+                <div class="counter-title">العداد التصاعدي من العقد</div>
+                <div class="target-date">يوم العقد: 4 سبتمبر 2025</div>
+                <div class="countdown-container">
+                    <div class="countdown-box">
+                        <div id="contract-days" class="countdown-value">00</div>
+                        <div class="countdown-label">أيام</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div id="contract-hours" class="countdown-value">00</div>
+                        <div class="countdown-label">ساعات</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div id="contract-minutes" class="countdown-value">00</div>
+                        <div class="countdown-label">دقائق</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div id="contract-seconds" class="countdown-value">00</div>
+                        <div class="countdown-label">ثواني</div>
+                    </div>
+                </div>
+                <div class="message">❤️ منذ يوم العقد بدأت رحلة الحب</div>
+            </div>
+
+        </div>
+
+        <footer>
+            كل لحظة تمر تقربنا أكثر من يوم الفرح ❤️
+        </footer>
+
+    </div>
+
+    <script>
+        const CONTRACT_DATE = new Date(2025, 8, 4);
+        const WEDDING_DATE = new Date(new Date().getFullYear(), 2, 23);
+
+        function update(prefix, diff) {
+            if (diff < 0) diff = 0;
+            const d = Math.floor(diff / 86400000);
+            const h = Math.floor((diff % 86400000) / 3600000);
+            const m = Math.floor((diff % 3600000) / 60000);
+            const s = Math.floor((diff % 60000) / 1000);
+            ["days", "hours", "minutes", "seconds"].forEach((t, i) => {
+                document.getElementById(prefix + "-" + t).textContent = [d, h, m, s][i].toString().padStart(2, "0");
+            });
+        }
+
+        setInterval(() => {
+            const now = new Date();
+            update("wedding", WEDDING_DATE - now);
+            update("contract", now - CONTRACT_DATE);
+        }, 1000);
+    </script>
+
+</body>
+
+</html>
