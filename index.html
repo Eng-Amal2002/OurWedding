@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" scroll-behavior: smooth;>
+<html lang="ar" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
@@ -9,9 +9,6 @@
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
 
-
-
-
     <style>
         * {
             margin: 0;
@@ -19,7 +16,6 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
 
         body {
             background: linear-gradient(135deg, #faf7f4, #d4c2d3, #faf7f4);
@@ -36,7 +32,7 @@
             max-width: 1000px;
             height: 100%;
             border-radius: 20px;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -47,6 +43,7 @@
         .hero-image img {
             width: 100%;
             height: 100%;
+            
             object-fit: cover;
         }
 
@@ -55,14 +52,14 @@
             width: 100%;
             background: linear-gradient(to bottom, #faf7f4, #ffffff);
             border-radius: 25px;
-            padding: 15px;
+            padding: 20px;
             box-shadow: 0 15px 35px rgba(129, 107, 129, 0.2);
             border: 2px solid #a586a6;
             text-align: center;
         }
 
         header {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         h1 {
@@ -85,74 +82,77 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 40px;
+            gap: 30px;
         }
 
         .counter-box {
             flex: 1;
-            min-width: 300px;
+            min-width: 280px;
             background: linear-gradient(145deg, #ffffff, #faf7f4);
             border-radius: 20px;
-            padding: 30px 20px;
+            padding: 25px 15px;
             box-shadow: 0 10px 25px rgba(165, 134, 166, 0.25);
             border: 2px solid #d4c2d3;
         }
 
         .counter-title {
-            font-size: 1.7rem;
-            margin-bottom: 20px;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
             font-weight: bold;
         }
 
         .target-date {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
             background: rgba(165, 134, 166, 0.15);
-            padding: 12px;
-            border-radius: 12px;
+            padding: 10px;
+            border-radius: 10px;
         }
 
-        /* إعدادات خاصة لجعل العدادات من اليسار لليمين */
+        /* إعدادات خاصة للعدادات */
         .countdown-container {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
+            flex-wrap: nowrap;
+            gap: 10px;
             direction: ltr;
-            /* جعل الاتجاه من اليسار لليمين فقط للعدادات */
         }
 
         .countdown-box {
             background: #fff;
-            border-radius: 15px;
-            padding: 20px 10px;
-            min-width: 110px;
-            box-shadow: 0 8px 20px rgba(165, 134, 166, 0.2);
+            border-radius: 12px;
+            padding: 15px 8px;
+            min-width: 70px;
+            box-shadow: 0 6px 15px rgba(165, 134, 166, 0.2);
             direction: ltr;
-            /* تأكيد الاتجاه من اليسار لليمين */
+            flex: 1;
         }
 
         .countdown-value {
-            font-size: 2.4rem;
+            font-size: 1.8rem;
             font-weight: bold;
+            line-height: 1.2;
         }
 
         .countdown-label {
-            margin-top: 8px;
+            margin-top: 6px;
             color: #735e59;
             text-align: center;
+            font-size: 0.9rem;
+            line-height: 1.2;
         }
 
         .message {
-            margin-top: 25px;
-            padding: 15px;
+            margin-top: 20px;
+            padding: 12px;
             background: rgba(165, 134, 166, 0.15);
-            border-radius: 12px;
+            border-radius: 10px;
             font-weight: 600;
+            font-size: 0.95rem;
         }
 
         footer {
-            margin-top: 40px;
+            margin-top: 30px;
             color: #735e59;
             font-size: 0.9rem;
             padding: 15px;
@@ -160,16 +160,14 @@
             border-radius: 12px;
         }
 
-        /* لتحسين العرض على الشاشات الصغيرة */
         .lottie-flowers {
             display: flex;
             justify-content: center;
-            margin: 20px 0;
+            margin: 15px 0;
         }
 
-        /* شريط التقدم المضافة */
         .progress-container {
-            margin: 30px auto;
+            margin: 25px auto;
             max-width: 800px;
             padding: 20px;
             background: rgba(255, 255, 255, 0.9);
@@ -179,33 +177,33 @@
         }
 
         .progress-title {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
             color: #412649;
             font-weight: bold;
         }
 
         .progress-description {
             color: #735e59;
-            margin-bottom: 25px;
-            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-size: 1rem;
         }
 
         .progress-bar-container {
             width: 100%;
-            height: 40px;
+            height: 35px;
             background-color: #f0e6ef;
-            border-radius: 20px;
+            border-radius: 18px;
             overflow: hidden;
             position: relative;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .progress-bar {
             height: 100%;
             background: linear-gradient(90deg, #d4c2d3, #a586a6, #735e59);
-            border-radius: 20px;
+            border-radius: 18px;
             width: 0%;
             transition: width 1s ease-in-out;
             position: relative;
@@ -229,29 +227,30 @@
         .progress-info {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 600;
             color: #412649;
+            font-size: 0.95rem;
         }
 
         .progress-stats {
             display: flex;
             justify-content: space-between;
-            margin-top: 20px;
+            margin-top: 15px;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 12px;
         }
 
         .progress-stat {
             background: rgba(165, 134, 166, 0.15);
-            padding: 15px;
-            border-radius: 12px;
+            padding: 12px;
+            border-radius: 10px;
             flex: 1;
-            min-width: 150px;
+            min-width: 130px;
         }
 
         .progress-stat-value {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: #412649;
             margin-bottom: 5px;
@@ -259,17 +258,17 @@
 
         .progress-stat-label {
             color: #735e59;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
 
         .progress-message {
-            margin-top: 20px;
-            padding: 15px;
+            margin-top: 15px;
+            padding: 12px;
             background: rgba(165, 134, 166, 0.15);
-            border-radius: 12px;
+            border-radius: 10px;
             font-weight: 600;
             color: #412649;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         @keyframes shimmer {
@@ -282,48 +281,170 @@
             }
         }
 
-        /* 📱 للجوال */
+        /* 📱 تصميم الجوال - الأهم هنا */
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
             .hero-image {
-                height: auto;
-                margin-bottom: 100px;
+                margin-bottom: 30px;
+                border-radius: 15px;
+            }
+
+            .hero-image img {
+                max-height: auto;
+            }
+
+            .container {
+                padding: 15px;
+                border-radius: 20px;
             }
 
             h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                margin-bottom: 10px;
             }
 
             .description {
                 font-size: 1rem;
-                padding: 0 10px;
+                padding: 0 5px;
+                margin-bottom: 20px;
+            }
+
+            .counters-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .counter-box {
+                min-width: 100%;
+                padding: 20px 10px;
+            }
+
+            .counter-title {
+                font-size: 1.4rem;
+                margin-bottom: 12px;
+            }
+
+            .target-date {
+                font-size: 1rem;
+                margin-bottom: 15px;
+                padding: 8px;
+            }
+
+            /* التعديل الرئيسي: جعل العدادات في صف واحد */
+            .countdown-container {
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                gap: 8px;
+                overflow-x: auto;
+                padding-bottom: 5px;
             }
 
             .countdown-box {
-                min-width: 80px;
-                padding: 15px 5px;
+                min-width: 65px;
+                padding: 12px 5px;
+                flex-shrink: 0;
             }
 
             .countdown-value {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
+            }
+
+            .countdown-label {
+                font-size: 0.8rem;
+                margin-top: 4px;
+            }
+
+            .message {
+                margin-top: 15px;
+                padding: 10px;
+                font-size: 0.9rem;
             }
 
             .progress-container {
                 padding: 15px;
+                margin: 20px auto;
             }
 
             .progress-title {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
+            }
+
+            .progress-description {
+                font-size: 0.9rem;
+                margin-bottom: 15px;
+            }
+
+            .progress-bar-container {
+                height: 30px;
+            }
+
+            .progress-info {
+                font-size: 0.85rem;
             }
 
             .progress-stat {
-                min-width: 120px;
+                min-width: calc(33.333% - 8px);
+                padding: 10px;
+            }
+
+            .progress-stat-value {
+                font-size: 1.3rem;
+            }
+
+            .progress-stat-label {
+                font-size: 0.8rem;
+            }
+
+            .lottie-flowers lottie-player {
+                width: 200px !important;
+                height: 80px !important;
+            }
+        }
+
+        /* للشاشات الصغيرة جداً */
+        @media (max-width: 480px) {
+            .countdown-box {
+                min-width: 60px;
+                padding: 10px 4px;
+            }
+
+            .countdown-value {
+                font-size: 1.4rem;
+            }
+
+            .countdown-label {
+                font-size: 0.75rem;
+            }
+
+            .progress-stat {
+                min-width: 100%;
+                margin-bottom: 8px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* للأجهزة اللوحية */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .countdown-box {
+                min-width: 85px;
+            }
+
+            .countdown-value {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- صورة المقدمة - الآن خارج الـ container -->
+    <!-- صورة المقدمة -->
     <div class="hero-image">
         <img src="9.png" alt="صورة الزفاف">
     </div>
@@ -340,17 +461,15 @@
             <h1>عداداتنا</h1>
             <p class="description">
                 موقع خاص لمتابعة الوقت المتبقي ليوم الزفاف والوقت المنقضي منذ يوم العقد.
-                كل لحظة تقربنا من يوم <strong>السعادة </strong>.
+                كل لحظة تقربنا من يوم <strong>السعادة</strong>.
             </p>
         </header>
-
-        <!-- شريط التقدم المضافة -->
 
         <div class="counters-container">
             <!-- عداد الزفاف -->
             <div class="counter-box">
-                <div class="counter-title"> 👰عداد العرس🤵</div>
-                <div class="target-date">يوم العرس: 5 شوال 1447هـ </div>
+                <div class="counter-title">👰 عداد العرس 🤵</div>
+                <div class="target-date">يوم العرس: 5 شوال 1447هـ</div>
                 <div class="countdown-container">
                     <div class="countdown-box">
                         <div id="wedding-days" class="countdown-value">00</div>
@@ -369,15 +488,17 @@
                         <div class="countdown-label">ثواني</div>
                     </div>
                 </div>
-                <div class="message"> العد التنازلي مستمر حتى يوم العرس💍</div>
+                <div class="message">العد التنازلي مستمر حتى يوم العرس 💍</div>
             </div>
+
+            <!-- شريط التقدم -->
             <div class="progress-container">
                 <div class="progress-title">مدة الخطوبة</div>
                 <div class="progress-description">شريط التقدم يوضح نسبة الوقت المنقضي منذ يوم العقد حتى يوم العرس</div>
 
                 <div class="progress-info">
-                    <div class="progress-date"> العقد<br>12 ربيع الأول </div>
-                    <div class="progress-date"> العرس<br>5شوال </div>
+                    <div class="progress-date">العقد<br>12 ربيع الأول</div>
+                    <div class="progress-date">العرس<br>5 شوال</div>
                 </div>
 
                 <div class="progress-bar-container">
@@ -412,8 +533,8 @@
 
             <!-- عداد العقد -->
             <div class="counter-box">
-                <div class="counter-title">عداد عقد القران </div>
-                <div class="target-date">يوم العقد :12-3-1447 هـ</div>
+                <div class="counter-title">عداد عقد القران</div>
+                <div class="target-date">يوم العقد: 12-3-1447 هـ</div>
                 <div class="countdown-container">
                     <div class="countdown-box">
                         <div id="contract-days" class="countdown-value">00</div>
@@ -432,7 +553,7 @@
                         <div class="countdown-label">ثواني</div>
                     </div>
                 </div>
-                <div class="message"> منذ يوم العقد بدأت رحلة الحب❤️</div>
+                <div class="message">منذ يوم العقد بدأت رحلة الحب ❤️</div>
             </div>
         </div>
 
@@ -445,14 +566,12 @@
         <footer>
             كل لحظة تمر تقربنا أكثر من يوم الفرح ❤️
         </footer>
-
     </div>
 
     <script>
         const CONTRACT_DATE = new Date(2025, 8, 4);
-        const WEDDING_DATE = new Date(new Date().getFullYear(), 2, 23);
+        const WEDDING_DATE = new Date(new Date().getFullYear(), 2, 24);
 
-        // حساب الفترة الكاملة بين العقد والزفاف
         const TOTAL_ENGAGEMENT_DAYS = Math.ceil((WEDDING_DATE - CONTRACT_DATE) / (1000 * 60 * 60 * 24));
 
         function updateCounters() {
@@ -491,28 +610,22 @@
         }
 
         function updateProgressBar(now) {
-            // حساب الأيام المنقضية منذ العقد
             const elapsedDays = Math.floor((now - CONTRACT_DATE) / (1000 * 60 * 60 * 24));
 
-            // حساب النسبة المئوية للتقدم
             let progressPercentage = 0;
             if (elapsedDays > 0) {
                 progressPercentage = Math.min(100, (elapsedDays / TOTAL_ENGAGEMENT_DAYS) * 100);
             }
 
-            // تحديث شريط التقدم
             const progressBar = document.getElementById("engagement-progress-bar");
             progressBar.style.width = `${progressPercentage}%`;
 
-            // تحديث النسبة المئوية المعروضة
             document.getElementById("progress-percentage").textContent = `${Math.round(progressPercentage)}%`;
 
-            // تحديث الإحصائيات
             document.getElementById("elapsed-days").textContent = elapsedDays > 0 ? elapsedDays : 0;
             document.getElementById("remaining-days").textContent = Math.max(0, TOTAL_ENGAGEMENT_DAYS - elapsedDays);
             document.getElementById("total-days").textContent = TOTAL_ENGAGEMENT_DAYS;
 
-            // تحديث الرسالة بناءً على نسبة التقدم
             const progressMessage = document.getElementById("progress-message");
             if (progressPercentage === 0) {
                 progressMessage.textContent = "بدأت رحلة الحب منذ يوم العقد، وكل يوم يقربنا من يوم الزفاف";
@@ -529,18 +642,9 @@
             }
         }
 
-        // تشغيل التحديث كل ثانية
         setInterval(updateCounters, 1000);
-
-        // التحديث الأولي
         updateCounters();
-
-
-
-
-
     </script>
 </body>
 
 </html>
-
