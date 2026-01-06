@@ -108,11 +108,13 @@
             border-radius: 12px;
         }
 
+        /* إعدادات خاصة لجعل العدادات من اليسار لليمين */
         .countdown-container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 15px;
+            direction: ltr; /* جعل الاتجاه من اليسار لليمين فقط للعدادات */
         }
 
         .countdown-box {
@@ -121,6 +123,7 @@
             padding: 20px 10px;
             min-width: 110px;
             box-shadow: 0 8px 20px rgba(165, 134, 166, 0.2);
+            direction: ltr; /* تأكيد الاتجاه من اليسار لليمين */
         }
 
         .countdown-value {
@@ -131,6 +134,7 @@
         .countdown-label {
             margin-top: 8px;
             color: #735e59;
+            text-align: center;
         }
 
         .message {
@@ -150,6 +154,13 @@
             border-radius: 12px;
         }
 
+        /* لتحسين العرض على الشاشات الصغيرة */
+        .lottie-flowers {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
         /* 📱 للجوال */
         @media (max-width: 768px) {
             .hero-image {
@@ -165,6 +176,15 @@
                 font-size: 1rem;
                 padding: 0 10px;
             }
+            
+            .countdown-box {
+                min-width: 80px;
+                padding: 15px 5px;
+            }
+            
+            .countdown-value {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -174,13 +194,14 @@
     <div class="hero-image">
         <img src="9.png" alt="صورة الزفاف">
     </div>
-    <lottie-player src="Flower.json" background="transparent" speed="1" style="width:300px;height:100px" loop autoplay>
-    </lottie-player>
+
     <!-- باقي المحتوى داخل الـ container -->
     <div class="container">
-        <lottie-player src="Flower.json" background="transparent" speed="1" style="width:300px;height:100px" loop
-            autoplay>
-        </lottie-player>
+        <div class="lottie-flowers">
+            <lottie-player src="Flower.json" background="transparent" speed="1" style="width:300px;height:100px" loop
+                autoplay>
+            </lottie-player>
+        </div>
 
         <header>
             <h1>عداداتنا</h1>
@@ -191,7 +212,7 @@
         </header>
 
         <div class="counters-container">
-
+            <!-- عداد الزفاف -->
             <div class="counter-box">
                 <div class="counter-title">العداد التنازلي للزفاف</div>
                 <div class="target-date">يوم الزفاف: 23 مارس</div>
@@ -216,6 +237,7 @@
                 <div class="message">💍 العد التنازلي مستمر حتى يوم الزفاف</div>
             </div>
 
+            <!-- عداد العقد -->
             <div class="counter-box">
                 <div class="counter-title">العداد التصاعدي من العقد</div>
                 <div class="target-date">يوم العقد: 4 سبتمبر 2025</div>
@@ -239,13 +261,12 @@
                 </div>
                 <div class="message">❤️ منذ يوم العقد بدأت رحلة الحب</div>
             </div>
+        </div>
 
-
+        <div class="lottie-flowers">
             <lottie-player src="cute.json" background="transparent" speed="1" style="width:300px;height:300px" loop
                 autoplay>
             </lottie-player>
-
-
         </div>
 
         <footer>
@@ -275,8 +296,5 @@
             update("contract", now - CONTRACT_DATE);
         }, 1000);
     </script>
-
-
 </body>
-
 </html>
