@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" scroll-behavior: smooth;>
 
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,9 @@
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
 
+
+
+
     <style>
         * {
             margin: 0;
@@ -16,6 +19,7 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
 
         body {
             background: linear-gradient(135deg, #faf7f4, #d4c2d3, #faf7f4);
@@ -333,7 +337,7 @@
         </div>
 
         <header>
-            <h1>عداداتنا🤍</h1>
+            <h1>عداداتنا</h1>
             <p class="description">
                 موقع خاص لمتابعة الوقت المتبقي ليوم الزفاف والوقت المنقضي منذ يوم العقد.
                 كل لحظة تقربنا من يوم <strong>السعادة </strong>.
@@ -530,105 +534,37 @@
 
         // التحديث الأولي
         updateCounters();
-        class ScrollJumpEffect {
-            constructor(options = {}) {
-                this.options = {
-                    containerSelector: '.container',
-                    triggerOffset: 50,
-                    jumpOffset: 20,
-                    scrollDelay: 150,
-                    maxInitialScroll: 100,
-                    enabled: true,
-                    ...options
-                };
 
-                this.hasTriggered = false;
-                this.scrollTimeout = null;
-                this.lastScrollY = 0;
 
-                this.init();
-            }
 
-            init() {
-                if (!this.options.enabled) return;
 
-                // استماع للتمرير
-                window.addEventListener('scroll', this.handleScroll.bind(this), { passive: true });
+        let jumped = false;
 
-                // استماع لللمس للأجهزة المحمولة
-                document.addEventListener('touchmove', this.handleTouch.bind(this), { passive: true });
+        function jumpToContent() {
+            if (jumped) return;
 
-                // إعادة التعيين عند تحديث الصفحة
-                window.addEventListener('beforeunload', () => {
-                    this.hasTriggered = false;
-                });
-            }
+            const container = document.querySelector('.container');
+            if (!container) return;
 
-            handleScroll() {
-                clearTimeout(this.scrollTimeout);
+            window.scrollTo({
+                top: container.offsetTop - 10,
+                behavior: 'smooth'
+            });
 
-                const currentScroll = window.scrollY;
-                const isScrollingDown = currentScroll > this.lastScrollY;
+            jumped = true;
 
-                // إعادة التعيين إذا عاد المستخدم لأعلى الصفحة
-                if (currentScroll < 10) {
-                    this.hasTriggered = false;
-                }
-
-                // تفعيل القفزة إذا تحققت الشروط
-                if (!this.hasTriggered &&
-                    isScrollingDown &&
-                    currentScroll > this.options.triggerOffset &&
-                    currentScroll < this.options.maxInitialScroll) {
-
-                    this.scrollTimeout = setTimeout(() => {
-                        this.jumpToContainer();
-                    }, this.options.scrollDelay);
-                }
-
-                this.lastScrollY = currentScroll;
-            }
-
-            handleTouch() {
-                if (!this.hasTriggered &&
-                    window.scrollY > this.options.triggerOffset &&
-                    window.scrollY < this.options.maxInitialScroll) {
-
-                    this.jumpToContainer();
-                }
-            }
-
-            jumpToContainer() {
-                const container = document.querySelector(this.options.containerSelector);
-                if (container) {
-                    window.scrollTo({
-                        top: container.offsetTop - this.options.jumpOffset,
-                        behavior: 'smooth'
-                    });
-                    this.hasTriggered = true;
-                }
-            }
-
-            // دعامة لإعادة التعيين يدويًا
-            reset() {
-                this.hasTriggered = false;
-            }
-
-            // دعامة لتعطيل/تفعيل التأثير
-            setEnabled(enabled) {
-                this.options.enabled = enabled;
-            }
+            // إزالة المستمعات بعد القفز
+            window.removeEventListener('wheel', jumpToContent);
+            window.removeEventListener('touchstart', jumpToContent);
         }
 
-        // استخدام التأثير
-        document.addEventListener('DOMContentLoaded', () => {
-            const scrollJump = new ScrollJumpEffect({
-                containerSelector: '.container',
-                triggerOffset: 30, // يبدأ التأثير بعد التمرير 30px
-                jumpOffset: 10,    // إزاحة 10px لأعلى من الـ container
-                scrollDelay: 100   // تأخير 100ms
-            });
-        });
+        // أول تمرير بالماوس
+        window.addEventListener('wheel', jumpToContent, { passive: true });
+
+        // أول لمس (للجوال)
+        window.addEventListener('touchstart', jumpToContent, { passive: true });
+
+
     </script>
 </body>
 
