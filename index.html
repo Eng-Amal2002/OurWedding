@@ -538,34 +538,9 @@
 
 
 
-        let jumped = false;
-
-        function jumpToContent() {
-            if (jumped) return;
-
-            const container = document.querySelector('.container');
-            if (!container) return;
-
-            window.scrollTo({
-                top: container.offsetTop - 10,
-                behavior: 'smooth'
-            });
-
-            jumped = true;
-
-            // إزالة المستمعات بعد القفز
-            window.removeEventListener('wheel', jumpToContent);
-            window.removeEventListener('touchstart', jumpToContent);
-        }
-
-        // أول تمرير بالماوس
-        window.addEventListener('wheel', jumpToContent, { passive: true });
-
-        // أول لمس (للجوال)
-        window.addEventListener('touchstart', jumpToContent, { passive: true });
-
 
     </script>
 </body>
 
 </html>
+
