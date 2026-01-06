@@ -22,9 +22,28 @@
             color: #412649;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             padding: 20px;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 1000px;
+            height: 100%;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(165, 134, 166, 0.35);
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .container {
@@ -36,29 +55,6 @@
             box-shadow: 0 15px 35px rgba(129, 107, 129, 0.2);
             border: 2px solid #a586a6;
             text-align: center;
-        }
-
-        /* ===== صورة المقدمة (مناسبة لأبعاد 1414×1504) ===== */
-        .hero-image {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            /* ارتفاع ديناميكي حسب المحتوى */
-            border-radius: 20px;
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 10px 25px rgba(165, 134, 166, 0.35);
-            overflow: hidden;
-        }
-
-        .hero-image img {
-            width: auto;
-            height:100%;
-            object-fit: cover;
-            /* يجعل الصورة تملأ الإطار بالكامل */
-            display: block;
         }
 
         header {
@@ -157,9 +153,8 @@
         /* 📱 للجوال */
         @media (max-width: 768px) {
             .hero-image {
-                height: 80vh;
-                /* ارتفاع يغطي 60% من ارتفاع الشاشة */
-                margin-bottom: 20px;
+                height: auto;
+                margin-bottom: 50px;
             }
 
             h1 {
@@ -175,11 +170,14 @@
 </head>
 
 <body>
-    <!-- صورة المقدمة -->
+    <!-- صورة المقدمة - الآن خارج الـ container -->
+    <div class="hero-image">
+        <img src="9.png" alt="صورة الزفاف">
+    </div>
+    <lottie-player src="Flower.json" background="transparent" speed="1" style="width:300px;height:100px" loop autoplay>
+    </lottie-player>
+    <!-- باقي المحتوى داخل الـ container -->
     <div class="container">
-        <div class="hero-image">
-            <img src="9.png" alt="صورة الزفاف">
-        </div>
         <lottie-player src="Flower.json" background="transparent" speed="1" style="width:300px;height:100px" loop
             autoplay>
         </lottie-player>
