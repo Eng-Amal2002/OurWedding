@@ -32,7 +32,7 @@
             max-width: 1000px;
             height: 100%;
             border-radius: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 60px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -114,7 +114,8 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 15px;
-            direction: ltr; /* جعل الاتجاه من اليسار لليمين فقط للعدادات */
+            direction: ltr;
+            /* جعل الاتجاه من اليسار لليمين فقط للعدادات */
         }
 
         .countdown-box {
@@ -123,7 +124,8 @@
             padding: 20px 10px;
             min-width: 110px;
             box-shadow: 0 8px 20px rgba(165, 134, 166, 0.2);
-            direction: ltr; /* تأكيد الاتجاه من اليسار لليمين */
+            direction: ltr;
+            /* تأكيد الاتجاه من اليسار لليمين */
         }
 
         .countdown-value {
@@ -161,11 +163,126 @@
             margin: 20px 0;
         }
 
+        /* شريط التقدم المضافة */
+        .progress-container {
+            margin: 30px auto;
+            max-width: 800px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(165, 134, 166, 0.2);
+            border: 2px solid #d4c2d3;
+        }
+
+        .progress-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #412649;
+            font-weight: bold;
+        }
+
+        .progress-description {
+            color: #735e59;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 40px;
+            background-color: #f0e6ef;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 15px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #d4c2d3, #a586a6, #735e59);
+            border-radius: 20px;
+            width: 0%;
+            transition: width 1s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-image: linear-gradient(90deg,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.3) 50%,
+                    transparent 100%);
+            animation: shimmer 2s infinite;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #412649;
+        }
+
+        .progress-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .progress-stat {
+            background: rgba(165, 134, 166, 0.15);
+            padding: 15px;
+            border-radius: 12px;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .progress-stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #412649;
+            margin-bottom: 5px;
+        }
+
+        .progress-stat-label {
+            color: #735e59;
+            font-size: 1rem;
+        }
+
+        .progress-message {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(165, 134, 166, 0.15);
+            border-radius: 12px;
+            font-weight: 600;
+            color: #412649;
+            font-size: 1.1rem;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
         /* 📱 للجوال */
         @media (max-width: 768px) {
             .hero-image {
                 height: auto;
-                margin-bottom: 50px;
+                margin-bottom: 100px;
             }
 
             h1 {
@@ -176,14 +293,26 @@
                 font-size: 1rem;
                 padding: 0 10px;
             }
-            
+
             .countdown-box {
                 min-width: 80px;
                 padding: 15px 5px;
             }
-            
+
             .countdown-value {
                 font-size: 1.8rem;
+            }
+
+            .progress-container {
+                padding: 15px;
+            }
+
+            .progress-title {
+                font-size: 1.5rem;
+            }
+
+            .progress-stat {
+                min-width: 120px;
             }
         }
     </style>
@@ -204,18 +333,20 @@
         </div>
 
         <header>
-            <h1>عداداتنا</h1>
+            <h1>عداداتنا🤍</h1>
             <p class="description">
                 موقع خاص لمتابعة الوقت المتبقي ليوم الزفاف والوقت المنقضي منذ يوم العقد.
-                كل لحظة تقربنا من يوم <strong>السعادة الأبدية</strong>.
+                كل لحظة تقربنا من يوم <strong>السعادة </strong>.
             </p>
         </header>
+
+        <!-- شريط التقدم المضافة -->
 
         <div class="counters-container">
             <!-- عداد الزفاف -->
             <div class="counter-box">
-                <div class="counter-title">العداد التنازلي للزفاف</div>
-                <div class="target-date">يوم الزفاف: 23 مارس</div>
+                <div class="counter-title"> 👰عداد العرس🤵</div>
+                <div class="target-date">يوم العرس: 5 شوال 1447هـ </div>
                 <div class="countdown-container">
                     <div class="countdown-box">
                         <div id="wedding-days" class="countdown-value">00</div>
@@ -234,13 +365,51 @@
                         <div class="countdown-label">ثواني</div>
                     </div>
                 </div>
-                <div class="message">💍 العد التنازلي مستمر حتى يوم الزفاف</div>
+                <div class="message"> العد التنازلي مستمر حتى يوم العرس💍</div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-title">مدة الخطوبة</div>
+                <div class="progress-description">شريط التقدم يوضح نسبة الوقت المنقضي منذ يوم العقد حتى يوم العرس</div>
+
+                <div class="progress-info">
+                    <div class="progress-date"> العقد<br>12 ربيع الأول </div>
+                    <div class="progress-date"> العرس<br>5شوال </div>
+                </div>
+
+                <div class="progress-bar-container">
+                    <div id="engagement-progress-bar" class="progress-bar"></div>
+                </div>
+
+                <div class="progress-info">
+                    <div>بداية الرحلة</div>
+                    <div id="progress-percentage">0%</div>
+                    <div>يوم الفرح</div>
+                </div>
+
+                <div class="progress-stats">
+                    <div class="progress-stat">
+                        <div id="elapsed-days" class="progress-stat-value">0</div>
+                        <div class="progress-stat-label">أيام مضت</div>
+                    </div>
+                    <div class="progress-stat">
+                        <div id="remaining-days" class="progress-stat-value">0</div>
+                        <div class="progress-stat-label">أيام متبقية</div>
+                    </div>
+                    <div class="progress-stat">
+                        <div id="total-days" class="progress-stat-value">0</div>
+                        <div class="progress-stat-label">إجمالي أيام الخطوبة</div>
+                    </div>
+                </div>
+
+                <div id="progress-message" class="progress-message">
+                    بدأت رحلة الحب منذ يوم العقد، وكل يوم يقربنا من يوم الزفاف
+                </div>
             </div>
 
             <!-- عداد العقد -->
             <div class="counter-box">
-                <div class="counter-title">العداد التصاعدي من العقد</div>
-                <div class="target-date">يوم العقد: 4 سبتمبر 2025</div>
+                <div class="counter-title">عداد عقد القران </div>
+                <div class="target-date">يوم العقد :12-3-1447 هـ</div>
                 <div class="countdown-container">
                     <div class="countdown-box">
                         <div id="contract-days" class="countdown-value">00</div>
@@ -259,7 +428,7 @@
                         <div class="countdown-label">ثواني</div>
                     </div>
                 </div>
-                <div class="message">❤️ منذ يوم العقد بدأت رحلة الحب</div>
+                <div class="message"> منذ يوم العقد بدأت رحلة الحب❤️</div>
             </div>
         </div>
 
@@ -279,22 +448,188 @@
         const CONTRACT_DATE = new Date(2025, 8, 4);
         const WEDDING_DATE = new Date(new Date().getFullYear(), 2, 23);
 
-        function update(prefix, diff) {
-            if (diff < 0) diff = 0;
-            const d = Math.floor(diff / 86400000);
-            const h = Math.floor((diff % 86400000) / 3600000);
-            const m = Math.floor((diff % 3600000) / 60000);
-            const s = Math.floor((diff % 60000) / 1000);
-            ["days", "hours", "minutes", "seconds"].forEach((t, i) => {
-                document.getElementById(prefix + "-" + t).textContent = [d, h, m, s][i].toString().padStart(2, "0");
-            });
+        // حساب الفترة الكاملة بين العقد والزفاف
+        const TOTAL_ENGAGEMENT_DAYS = Math.ceil((WEDDING_DATE - CONTRACT_DATE) / (1000 * 60 * 60 * 24));
+
+        function updateCounters() {
+            const now = new Date();
+
+            // تحديث عداد الزفاف
+            const weddingDiff = WEDDING_DATE - now;
+            if (weddingDiff > 0) {
+                const wd = Math.floor(weddingDiff / 86400000);
+                const wh = Math.floor((weddingDiff % 86400000) / 3600000);
+                const wm = Math.floor((weddingDiff % 3600000) / 60000);
+                const ws = Math.floor((weddingDiff % 60000) / 1000);
+
+                document.getElementById("wedding-days").textContent = wd.toString().padStart(2, "0");
+                document.getElementById("wedding-hours").textContent = wh.toString().padStart(2, "0");
+                document.getElementById("wedding-minutes").textContent = wm.toString().padStart(2, "0");
+                document.getElementById("wedding-seconds").textContent = ws.toString().padStart(2, "0");
+            }
+
+            // تحديث عداد العقد
+            const contractDiff = now - CONTRACT_DATE;
+            if (contractDiff > 0) {
+                const cd = Math.floor(contractDiff / 86400000);
+                const ch = Math.floor((contractDiff % 86400000) / 3600000);
+                const cm = Math.floor((contractDiff % 3600000) / 60000);
+                const cs = Math.floor((contractDiff % 60000) / 1000);
+
+                document.getElementById("contract-days").textContent = cd.toString().padStart(2, "0");
+                document.getElementById("contract-hours").textContent = ch.toString().padStart(2, "0");
+                document.getElementById("contract-minutes").textContent = cm.toString().padStart(2, "0");
+                document.getElementById("contract-seconds").textContent = cs.toString().padStart(2, "0");
+            }
+
+            // تحديث شريط التقدم
+            updateProgressBar(now);
         }
 
-        setInterval(() => {
-            const now = new Date();
-            update("wedding", WEDDING_DATE - now);
-            update("contract", now - CONTRACT_DATE);
-        }, 1000);
+        function updateProgressBar(now) {
+            // حساب الأيام المنقضية منذ العقد
+            const elapsedDays = Math.floor((now - CONTRACT_DATE) / (1000 * 60 * 60 * 24));
+
+            // حساب النسبة المئوية للتقدم
+            let progressPercentage = 0;
+            if (elapsedDays > 0) {
+                progressPercentage = Math.min(100, (elapsedDays / TOTAL_ENGAGEMENT_DAYS) * 100);
+            }
+
+            // تحديث شريط التقدم
+            const progressBar = document.getElementById("engagement-progress-bar");
+            progressBar.style.width = `${progressPercentage}%`;
+
+            // تحديث النسبة المئوية المعروضة
+            document.getElementById("progress-percentage").textContent = `${Math.round(progressPercentage)}%`;
+
+            // تحديث الإحصائيات
+            document.getElementById("elapsed-days").textContent = elapsedDays > 0 ? elapsedDays : 0;
+            document.getElementById("remaining-days").textContent = Math.max(0, TOTAL_ENGAGEMENT_DAYS - elapsedDays);
+            document.getElementById("total-days").textContent = TOTAL_ENGAGEMENT_DAYS;
+
+            // تحديث الرسالة بناءً على نسبة التقدم
+            const progressMessage = document.getElementById("progress-message");
+            if (progressPercentage === 0) {
+                progressMessage.textContent = "بدأت رحلة الحب منذ يوم العقد، وكل يوم يقربنا من يوم الزفاف";
+            } else if (progressPercentage < 25) {
+                progressMessage.textContent = "لا تزال الرحلة في بدايتها، استمتعوا بكل لحظة من خطوبتكم ❤️";
+            } else if (progressPercentage < 50) {
+                progressMessage.textContent = "لقد قطعتم ربع الطريق تقريباً، استمروا في بناء الذكريات الجميلة";
+            } else if (progressPercentage < 75) {
+                progressMessage.textContent = "لقد تجاوزتم منتصف الرحلة، يوم الزفاف يقترب أكثر فأكثر!";
+            } else if (progressPercentage < 100) {
+                progressMessage.textContent = "الرحلة تقترب من نهايتها، استعدوا ليوم الزفاف السعيد! 💍";
+            } else {
+                progressMessage.textContent = "مبروك! لقد وصلتم إلى يوم الزفاف 🎉💕";
+            }
+        }
+
+        // تشغيل التحديث كل ثانية
+        setInterval(updateCounters, 1000);
+
+        // التحديث الأولي
+        updateCounters();
+        class ScrollJumpEffect {
+            constructor(options = {}) {
+                this.options = {
+                    containerSelector: '.container',
+                    triggerOffset: 50,
+                    jumpOffset: 20,
+                    scrollDelay: 150,
+                    maxInitialScroll: 100,
+                    enabled: true,
+                    ...options
+                };
+
+                this.hasTriggered = false;
+                this.scrollTimeout = null;
+                this.lastScrollY = 0;
+
+                this.init();
+            }
+
+            init() {
+                if (!this.options.enabled) return;
+
+                // استماع للتمرير
+                window.addEventListener('scroll', this.handleScroll.bind(this), { passive: true });
+
+                // استماع لللمس للأجهزة المحمولة
+                document.addEventListener('touchmove', this.handleTouch.bind(this), { passive: true });
+
+                // إعادة التعيين عند تحديث الصفحة
+                window.addEventListener('beforeunload', () => {
+                    this.hasTriggered = false;
+                });
+            }
+
+            handleScroll() {
+                clearTimeout(this.scrollTimeout);
+
+                const currentScroll = window.scrollY;
+                const isScrollingDown = currentScroll > this.lastScrollY;
+
+                // إعادة التعيين إذا عاد المستخدم لأعلى الصفحة
+                if (currentScroll < 10) {
+                    this.hasTriggered = false;
+                }
+
+                // تفعيل القفزة إذا تحققت الشروط
+                if (!this.hasTriggered &&
+                    isScrollingDown &&
+                    currentScroll > this.options.triggerOffset &&
+                    currentScroll < this.options.maxInitialScroll) {
+
+                    this.scrollTimeout = setTimeout(() => {
+                        this.jumpToContainer();
+                    }, this.options.scrollDelay);
+                }
+
+                this.lastScrollY = currentScroll;
+            }
+
+            handleTouch() {
+                if (!this.hasTriggered &&
+                    window.scrollY > this.options.triggerOffset &&
+                    window.scrollY < this.options.maxInitialScroll) {
+
+                    this.jumpToContainer();
+                }
+            }
+
+            jumpToContainer() {
+                const container = document.querySelector(this.options.containerSelector);
+                if (container) {
+                    window.scrollTo({
+                        top: container.offsetTop - this.options.jumpOffset,
+                        behavior: 'smooth'
+                    });
+                    this.hasTriggered = true;
+                }
+            }
+
+            // دعامة لإعادة التعيين يدويًا
+            reset() {
+                this.hasTriggered = false;
+            }
+
+            // دعامة لتعطيل/تفعيل التأثير
+            setEnabled(enabled) {
+                this.options.enabled = enabled;
+            }
+        }
+
+        // استخدام التأثير
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollJump = new ScrollJumpEffect({
+                containerSelector: '.container',
+                triggerOffset: 30, // يبدأ التأثير بعد التمرير 30px
+                jumpOffset: 10,    // إزاحة 10px لأعلى من الـ container
+                scrollDelay: 100   // تأخير 100ms
+            });
+        });
     </script>
 </body>
+
 </html>
