@@ -30,19 +30,15 @@
         .hero-image {
             width: 100%;
             max-width: 1000px;
-            height: 100%;
             border-radius: 20px;
             margin-bottom: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             box-shadow: 0 10px 25px rgba(165, 134, 166, 0.35);
             overflow: hidden;
         }
 
         .hero-image img {
             width: 100%;
-            height: 100%;
+            display: block;
             object-fit: cover;
         }
 
@@ -57,10 +53,6 @@
             text-align: center;
         }
 
-        header {
-            margin-bottom: 30px;
-        }
-
         h1 {
             font-size: 2.6rem;
             margin-bottom: 15px;
@@ -72,26 +64,17 @@
         .description {
             font-size: 1.1rem;
             color: #735e59;
-            max-width: 700px;
-            margin: 0 auto 30px;
+            margin-bottom: 30px;
             line-height: 1.7;
         }
 
-        .counters-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-        }
-
         .counter-box {
-            flex: 1;
-            min-width: 280px;
             background: linear-gradient(145deg, #ffffff, #faf7f4);
             border-radius: 20px;
             padding: 25px 15px;
             box-shadow: 0 10px 25px rgba(165, 134, 166, 0.25);
             border: 2px solid #d4c2d3;
+            margin-bottom: 30px;
         }
 
         .counter-title {
@@ -111,7 +94,6 @@
         .countdown-container {
             display: flex;
             justify-content: center;
-            flex-wrap: nowrap;
             gap: 10px;
             direction: ltr;
         }
@@ -120,66 +102,27 @@
             background: #fff;
             border-radius: 12px;
             padding: 15px 8px;
-            min-width: 70px;
+            min-width: 75px;
             box-shadow: 0 6px 15px rgba(165, 134, 166, 0.2);
-            direction: ltr;
             flex: 1;
         }
 
         .countdown-value {
             font-size: 1.8rem;
             font-weight: bold;
-            line-height: 1.2;
         }
 
         .countdown-label {
-            margin-top: 6px;
-            color: #735e59;
-            text-align: center;
-            font-size: 0.9rem;
-            line-height: 1.2;
-        }
-
-        .message {
-            margin-top: 20px;
-            padding: 12px;
-            background: rgba(165, 134, 166, 0.15);
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        /* تنسيق قسم الـ Padlet */
-        .padlet-section {
-            margin: 40px 0;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(165, 134, 166, 0.2);
-            border: 2px solid #d4c2d3;
-        }
-
-        footer {
-            margin-top: 30px;
             color: #735e59;
             font-size: 0.9rem;
-            padding: 15px;
-            background: rgba(165, 134, 166, 0.15);
-            border-radius: 12px;
         }
 
-        .lottie-flowers {
-            display: flex;
-            justify-content: center;
-            margin: 5px 0;
-        }
-
+        /* شريط التقدم */
         .progress-container {
             margin: 25px auto;
-            max-width: 800px;
             padding: 20px;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(165, 134, 166, 0.2);
             border: 2px solid #d4c2d3;
         }
 
@@ -190,32 +133,62 @@
             border-radius: 18px;
             overflow: hidden;
             position: relative;
-            margin-bottom: 12px;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 15px 0;
         }
 
         .progress-bar {
             height: 100%;
             background: linear-gradient(90deg, #d4c2d3, #a586a6, #735e59);
-            border-radius: 18px;
             width: 0%;
-            transition: width 1s ease-in-out;
-            position: relative;
+            transition: width 1s;
+        }
+
+        .progress-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .progress-stat {
+            background: rgba(165, 134, 166, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 100px;
+        }
+
+        .progress-stat-value {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* قسم Padlet */
+        .padlet-section {
+            margin-top: 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid #d4c2d3;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(165, 134, 166, 0.1);
+            border-radius: 12px;
+            font-size: 0.9rem;
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-
             .countdown-container {
-                flex-wrap: nowrap;
-                gap: 8px;
+                gap: 5px;
             }
 
             .countdown-box {
                 min-width: 60px;
-                padding: 10px 4px;
+                padding: 10px 5px;
             }
 
             .countdown-value {
@@ -231,133 +204,139 @@
     </div>
 
     <div class="container">
-        <div class="lottie-flowers">
-            <lottie-player src="Flower.json" background="transparent" speed="1" style="width:300px;height:100px" loop
-                autoplay></lottie-player>
-        </div>
-
         <header>
-            <h1>عداداتنا</h1>
-            <p class="description">موقع خاص لمتابعة الوقت المتبقي ليوم الزفاف والوقت المنقضي منذ يوم العقد.</p>
+            <h1>عداداتنا السعيدة</h1>
+            <p class="description">متابعة لحظاتنا الجميلة حتى نلتقي في بيت واحد.</p>
         </header>
 
-        <div class="counters-container">
-            <div class="counter-box">
-                <div class="counter-title">👰 عداد العرس 🤵</div>
-                <div class="target-date">يوم العرس: 5 شوال 1447هـ</div>
-                <div class="countdown-container">
-                    <div class="countdown-box">
-                        <div id="wedding-days" class="countdown-value">00</div>
-                        <div class="countdown-label">أيام</div>
-                    </div>
-                    <div class="countdown-box">
-                        <div id="wedding-hours" class="countdown-value">00</div>
-                        <div class="countdown-label">ساعات</div>
-                    </div>
-                    <div class="countdown-box">
-                        <div id="wedding-minutes" class="countdown-value">00</div>
-                        <div class="countdown-label">دقائق</div>
-                    </div>
-                    <div class="countdown-box">
-                        <div id="wedding-seconds" class="countdown-value">00</div>
-                        <div class="countdown-label">ثواني</div>
-                    </div>
+        <div class="counter-box">
+            <div class="counter-title">👰 عداد العرس 🤵</div>
+            <div class="target-date">يوم العرس المتوقع: 5 شوال 1447هـ</div>
+            <div class="countdown-container">
+                <div class="countdown-box">
+                    <div id="wedding-days" class="countdown-value">00</div>
+                    <div class="countdown-label">أيام</div>
                 </div>
-                <div class="message">العد التنازلي مستمر حتى يوم العرس 💍</div>
-            </div>
-
-            <div class="counter-box">
-                <div class="counter-title">عداد عقد القران</div>
-                <div class="target-date">يوم العقد: 12-3-1447 هـ</div>
-                <div class="countdown-container">
-                    <div class="countdown-box">
-                        <div id="contract-days" class="countdown-value">00</div>
-                        <div class="countdown-label">أيام</div>
-                    </div>
-                    <div class="countdown-box">
-                        <div id="contract-hours" class="countdown-value">00</div>
-                        <div class="countdown-label">ساعات</div>
-                    </div>
-                    <div class="countdown-box">
-                        <div id="contract-minutes" class="countdown-value">00</div>
-                        <div class="countdown-label">دقائق</div>
-                    </div>
-                    <div class="countdown-box">
-                        <div id="contract-seconds" class="countdown-value">00</div>
-                        <div class="countdown-label">ثواني</div>
-                    </div>
+                <div class="countdown-box">
+                    <div id="wedding-hours" class="countdown-value">00</div>
+                    <div class="countdown-label">ساعات</div>
                 </div>
-                <div class="message">منذ يوم العقد بدأت رحلة الحب ❤️</div>
+                <div class="countdown-box">
+                    <div id="wedding-minutes" class="countdown-value">00</div>
+                    <div class="countdown-label">دقائق</div>
+                </div>
+                <div class="countdown-box">
+                    <div id="wedding-seconds" class="countdown-value">00</div>
+                    <div class="countdown-label">ثواني</div>
+                </div>
             </div>
         </div>
 
         <div class="progress-container">
+            <h3 style="margin-bottom: 10px;">مسار رحلتنا</h3>
             <div class="progress-bar-container">
                 <div id="engagement-progress-bar" class="progress-bar"></div>
             </div>
-            <div id="progress-percentage" style="font-weight: bold; color: #412649;">0%</div>
-            <div id="progress-message" class="message">يتم حساب التقدم...</div>
+            <div id="progress-percentage" style="font-weight: bold;">0%</div>
+
+            <div class="progress-stats">
+                <div class="progress-stat">
+                    <div id="elapsed-days" class="progress-stat-value">0</div>
+                    <div style="font-size: 0.8rem;">أيام مضت</div>
+                </div>
+                <div class="progress-stat">
+                    <div id="remaining-days" class="progress-stat-value">0</div>
+                    <div style="font-size: 0.8rem;">أيام متبقية</div>
+                </div>
+                <div class="progress-stat">
+                    <div id="total-days" class="progress-stat-value">0</div>
+                    <div style="font-size: 0.8rem;">إجمالي المدة</div>
+                </div>
+            </div>
         </div>
 
-        <h2 style="margin-top: 40px; color: #412649;">لوحة الذكريات ✨</h2>
+        <div class="counter-box">
+            <div class="counter-title">💍 عداد عقد القران</div>
+            <div class="target-date">يوم العقد السعيد: 12-3-1447 هـ</div>
+            <div class="countdown-container">
+                <div class="countdown-box">
+                    <div id="contract-days" class="countdown-value">00</div>
+                    <div class="countdown-label">أيام</div>
+                </div>
+                <div class="countdown-box">
+                    <div id="contract-hours" class="countdown-value">00</div>
+                    <div class="countdown-label">ساعات</div>
+                </div>
+                <div class="countdown-box">
+                    <div id="contract-minutes" class="countdown-value">00</div>
+                    <div class="countdown-label">دقائق</div>
+                </div>
+                <div class="countdown-box">
+                    <div id="contract-seconds" class="countdown-value">00</div>
+                    <div class="countdown-label">ثواني</div>
+                </div>
+            </div>
+            <p style="margin-top: 15px; font-weight: bold;">منذ ذلك اليوم تغيرت حياتنا ❤️</p>
+        </div>
+
+        <h3 style="margin-top: 30px;">لوحة الذكريات ✨</h3>
         <div class="padlet-section">
-            <div class="padlet-embed"
-                style="border:none;box-sizing:border-box;overflow:hidden;position:relative;width:100%;background:#F4F4F4">
-                <p style="padding:0;margin:0">
-                    <iframe src="https://padlet.com/embed/4zaftsa3i9ukkdwx" frameborder="0"
-                        allow="camera;microphone;geolocation;display-capture;clipboard-write"
-                        style="width:100%;height:608px;display:block;padding:0;margin:0"></iframe>
-                </p>
+            <div class="padlet-embed" style="width:100%;background:#F4F4F4">
+                <iframe src="https://padlet.com/embed/4zaftsa3i9ukkdwx" frameborder="0"
+                    allow="camera;microphone;geolocation;display-capture;clipboard-write"
+                    style="width:100%;height:500px;display:block;"></iframe>
             </div>
         </div>
 
         <div class="lottie-flowers">
-            <lottie-player src="cute.json" background="transparent" speed="1" style="width:300px;height:300px" loop
+            <lottie-player src="cute.json" background="transparent" speed="1" style="width:250px;height:250px" loop
                 autoplay></lottie-player>
         </div>
 
-        <footer>
-            كل لحظة تمر تقربنا أكثر من يوم الفرح ❤️
-        </footer>
+        <footer>كل لحظة تمر تقربنا أكثر من يوم الفرح ❤️</footer>
     </div>
 
     <script>
-        // إعداد التواريخ (ملاحظة: الشهور في JS تبدأ من 0، لذا شهر 9 هو index 8)
         const CONTRACT_DATE = new Date(2025, 8, 4);
-        const WEDDING_DATE = new Date(2026, 3, 23); // تقريباً 5 شوال 1447هـ يوافق أبريل 2026
+        const WEDDING_DATE = new Date(2026, 2, 24); // تقريبي ليوم 5 شوال
 
-        const TOTAL_ENGAGEMENT_DAYS = Math.ceil((WEDDING_DATE - CONTRACT_DATE) / (1000 * 60 * 60 * 24));
+        const TOTAL_DAYS = Math.ceil((WEDDING_DATE - CONTRACT_DATE) / (1000 * 60 * 60 * 24));
 
-        function updateCounters() {
+        function update() {
             const now = new Date();
 
-            // تحديث عداد الزفاف
-            const weddingDiff = WEDDING_DATE - now;
-            if (weddingDiff > 0) {
-                document.getElementById("wedding-days").textContent = Math.floor(weddingDiff / 86400000).toString().padStart(2, "0");
-                document.getElementById("wedding-hours").textContent = Math.floor((weddingDiff % 86400000) / 3600000).toString().padStart(2, "0");
-                document.getElementById("wedding-minutes").textContent = Math.floor((weddingDiff % 3600000) / 60000).toString().padStart(2, "0");
-                document.getElementById("wedding-seconds").textContent = Math.floor((weddingDiff % 60000) / 1000).toString().padStart(2, "0");
+            // عداد العرس
+            const wDiff = WEDDING_DATE - now;
+            if (wDiff > 0) {
+                document.getElementById("wedding-days").textContent = Math.floor(wDiff / 86400000).toString().padStart(2, "0");
+                document.getElementById("wedding-hours").textContent = Math.floor((wDiff % 86400000) / 3600000).toString().padStart(2, "0");
+                document.getElementById("wedding-minutes").textContent = Math.floor((wDiff % 3600000) / 60000).toString().padStart(2, "0");
+                document.getElementById("wedding-seconds").textContent = Math.floor((wDiff % 60000) / 1000).toString().padStart(2, "0");
             }
 
-            // تحديث عداد العقد
-            const contractDiff = now - CONTRACT_DATE;
-            if (contractDiff > 0) {
-                document.getElementById("contract-days").textContent = Math.floor(contractDiff / 86400000).toString().padStart(2, "0");
-                document.getElementById("contract-hours").textContent = Math.floor((contractDiff % 86400000) / 3600000).toString().padStart(2, "0");
-                document.getElementById("contract-minutes").textContent = Math.floor((contractDiff % 3600000) / 60000).toString().padStart(2, "0");
-                document.getElementById("contract-seconds").textContent = Math.floor((contractDiff % 60000) / 1000).toString().padStart(2, "0");
+            // عداد العقد
+            const cDiff = now - CONTRACT_DATE;
+            if (cDiff > 0) {
+                document.getElementById("contract-days").textContent = Math.floor(cDiff / 86400000).toString().padStart(2, "0");
+                document.getElementById("contract-hours").textContent = Math.floor((cDiff % 86400000) / 3600000).toString().padStart(2, "0");
+                document.getElementById("contract-minutes").textContent = Math.floor((cDiff % 3600000) / 60000).toString().padStart(2, "0");
+                document.getElementById("contract-seconds").textContent = Math.floor((cDiff % 60000) / 1000).toString().padStart(2, "0");
             }
 
-            // شريط التقدم
-            const elapsedDays = Math.floor((now - CONTRACT_DATE) / (1000 * 60 * 60 * 24));
-            let progress = Math.min(100, Math.max(0, (elapsedDays / TOTAL_ENGAGEMENT_DAYS) * 100));
+            // الإحصائيات وشريط التقدم
+            const elapsed = Math.floor((now - CONTRACT_DATE) / 86400000);
+            const remaining = Math.max(0, TOTAL_DAYS - elapsed);
+            const progress = Math.min(100, (elapsed / TOTAL_DAYS) * 100);
+
             document.getElementById("engagement-progress-bar").style.width = progress + "%";
             document.getElementById("progress-percentage").textContent = Math.round(progress) + "%";
+            document.getElementById("elapsed-days").textContent = elapsed;
+            document.getElementById("remaining-days").textContent = remaining;
+            document.getElementById("total-days").textContent = TOTAL_DAYS;
         }
 
-        setInterval(updateCounters, 1000);
-        updateCounters();
+        setInterval(update, 1000);
+        update();
     </script>
 </body>
 
